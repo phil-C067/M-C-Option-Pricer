@@ -1,5 +1,5 @@
 import numpy as np
-def antithetic_call_price(S0, K, r, sigma, T, N):
+def antithetic_call_price(S0,r,sigma,T,K,N):
     Z = np.random.normal(0, 1, N)
     ST_plus = S0 * np.exp((r - sigma**2 / 2) * T+ sigma * np.sqrt(T) * Z)
     ST_minus= S0 * np.exp((r - sigma**2 / 2) * T- sigma * np.sqrt(T) * Z)
