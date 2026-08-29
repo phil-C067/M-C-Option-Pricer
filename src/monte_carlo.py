@@ -41,6 +41,14 @@ def monte_carlo_call_price_crn(S_0,r,sigma,T,K,N,Z=None):
     payoff_mean = np.mean(payoff)
     C = payoff_mean * np.exp(-r * T)  # option price
     return C
+def monte_carlo_put_price_crn(S_0,r,sigma,T,K,N,Z=None):
+    if Z is None:
+        Z = np.random.normal(0, 1, N)
+    ST = S_0 * np.exp((r - (sigma ** 2) / 2) * T + sigma * np.sqrt(T) * Z)
+    payoff = np.maximum(0, K-ST)
+    payoff_mean = np.mean(payoff)
+    P = payoff_mean * np.exp(-r * T)  # option price
+    return P
 
 for N in [100,1000,10000,100000,1000000]: # number of simulations
     print(monte_carlo_call_price(100,0.05,0.2,1,100,N))
