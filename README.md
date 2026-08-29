@@ -33,8 +33,7 @@ $$
 For a European call, the Monte Carlo estimator is
 
 $$
-\hat{C}
-=
+\hat{C}=
 e^{-rT}\frac{1}{N}
 \sum_{i=1}^{N}
 \max(S_T^{(i)}-K,0).
